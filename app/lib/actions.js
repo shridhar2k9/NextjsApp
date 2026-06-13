@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
+import { revalidatePath } from "next/cache";
 
 function isInvalidText(text) {
   return !text || text.trim() === '';
@@ -28,5 +29,10 @@ function isInvalidText(text) {
             return {message:'Invalid input.'};
             }
         await saveMeal(meal);
+        // nextjs will cache while build time if we want to rerender whenever routing we need to revalidate
+        revalidatePath('/meals')
+        // to revalidate entire application 
+        // revalidatePath('/','layout')
+        // revalidatePath('/meals','layout')
         redirect('/meals')
     }
