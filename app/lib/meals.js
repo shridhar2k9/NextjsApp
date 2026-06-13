@@ -4,6 +4,7 @@ const db = sql('meals.db');
 
 const getMeals= async ()=>{
     await new Promise((resolve)=>setTimeout(()=>{resolve()},5000))
+    throw new error("Gettin error while retriving Meals data");
     return db.prepare("select * from meals").all();
 }
 
