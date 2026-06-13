@@ -3,6 +3,7 @@ import logoImg from '@/assets/logo.png'
 import Classname from './main-header.module.css';
 import Image from "next/image";
 import MainHeaderBackground from './main-header-background';
+import Nav from "../nav/nav";
 
 const Header = () =>{
     return (
@@ -13,25 +14,7 @@ const Header = () =>{
                 <Image src={logoImg} alt="A plate with food on it"/>
                 Next Level Food
             </Link>
-            <nav className={Classname.nav}>
-                <ul>
-                    <li>
-                        <Link href="/community">Foodies Community</Link>
-                    </li>
-                     <li>
-                        <Link href="/meals">Browse Meals</Link>
-                    </li>
-                    <li>
-                        <Link href="/meals/share">Share</Link>
-                    </li>
-                    <li>
-                        <Link href="/meals/page1">Page1</Link>
-                    </li>
-                    <li>
-                        <Link href="/meals/page2">Page2</Link>
-                    </li>
-                </ul>
-            </nav>
+           <Nav></Nav>
         </header>
         </>
     )
